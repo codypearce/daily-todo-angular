@@ -5,6 +5,8 @@ const express = require('require'),
   bodyParser = require('body-parser'),
   methodOverride = require('method-override');
 
+mongoose.connect('mongodb://localhost/daily-todo');
+
 app.use(express.static(__dirname + '/client'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
