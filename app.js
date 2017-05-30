@@ -1,4 +1,4 @@
-const express = require('require'),
+const express = require('express'),
   app = express(),
   mongoose = require('mongoose'),
   morgan = require('morgan'),
@@ -16,4 +16,4 @@ app.use(methodOverride());
 
 const port = 3000;
 app.listen(port);
-console.log('App is listening on port' + port);
+console.log('App is listening on port ' + port);
