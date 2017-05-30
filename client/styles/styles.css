@@ -1,0 +1,16 @@
+html, body, .wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.sidenav {
+  background: #3737d2;
+  height: 100%;
+  width: 300px;
+}
+
+.body {
+  height: 100%;
+}
