@@ -6,26 +6,19 @@ html, body, .wrapper {
   font-family: 'Lato', sans-serif;
 }
 
+/* Sidenav */
 .sidenav {
   background: #3737d2;
   height: 100%;
-  width: 300px;
   position: relative;
 }
-
-.body {
-  height: 100%;
-}
-
-
-.title {
+.sidenav_title {
   text-align: center;
   color:white;
 }
 .sidenav_list {
   margin-top: 100px;
 }
-
 .sidenav_btn {
   display: block;
   background: none;
@@ -50,4 +43,25 @@ html, body, .wrapper {
   text-align: center;
   width: 100%;
   color: white;
+}
+
+/* Main Body */
+.body {
+  height: 100%;
+}
+.content {
+  margin-top: 50px;
+}
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+}
+.todos {
+  padding: 10px 20px;
+  background: rgba(0,0,0,.1);
+}
+.backlog {
+  padding: 10px 20px;
+  background: rgba(0,0,0,.1);
 }
