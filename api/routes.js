@@ -1,39 +1,46 @@
 var Todo = require('./models/Todo');
 
-app.get('/api/todos', function(req, res) {
-  Todo.find(function(err, todos) {
-    if (err)
-      res.send(err)
-    res.json(todos);
-  });
- });
 
- app.post('/api/todos', function(req, res) {
-   Todo.create({
-     todo: req.body.todo,
-     dueDate: req.body.dueDate,
-     done: false,
-   }, function(err, todo) {
-      if(err)
+module.exports = function(app) {
+  app.get('/api/todos', function(req, res) {
+    Todo.find(function(err, todos) {
+      if (err)
         res.send(err)
-      Todo.find(function(err, todos) {
-        if(err)
-          res.send(err)
-        res.json(todos);
-      })
-   })
- })
+      res.json(todos);
+    });
+   });
 
- app.delete('/api/todos/:todoId', function(req, res) {
-   Todo.remove({
-     _id: req.paras.todoId
-   }, function(err, todo) {
-      if(err)
-        res.send(err);
-      Todo.find(function(err, todos) {
+   app.post('/api/todos', function(req, res) {
+     Todo.create({
+       todo: req.body.todo,
+       dueDate: req.body.dueDate,
+       done: false,
+     }, function(err, todo) {
         if(err)
           res.send(err)
-        res.json(todos);
-      })
+        Todo.find(function(err, todos) {
+          if(err)
+            res.send(err)
+          res.json(todos);
+        })
+     })
    })
- })
+
+   app.delete('/api/todos/:todoId', function(req, res) {
+     Todo.remove({
+       _id: req.paras.todoId
+     }, function(err, todo) {
+        if(err)
+          res.send(err);
+        Todo.find(function(err, todos) {
+          if(err)
+            res.send(err)
+          res.json(todos);
+        })
+     })
+   })
+
+   app.get('*', function(req, res) {
+     res.sendFile(__dirname + './client/index.html'); // load the single view file (angular will handle the page changes on the front-end)
+  });
+}
