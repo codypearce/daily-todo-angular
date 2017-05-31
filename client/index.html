@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Daily Todo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
     <link rel="stylesheet" href="/styles/styles.css">
   </head>
-  <body>
-    <div class="row wrapper">
+  <body ng-app='dailyTodo'>
+    <div class="row wrapper"  ng-controller="mainController">
       <div class="sidenav col-xs-2">
         <div class="">
           <h1 class='sidenav_title'>Daily Todo</h1>
@@ -31,6 +32,7 @@
           <div class="row">
             <div class="todos col-xs-3 col-xs-offset-4">
               <h3>Todos</h3>
+              <p ng-repeat="todo in todos">{{todo.todo}}</p>
               <p>Build a todo app</p>
               <p>Do other things</p>
             </div>
@@ -44,5 +46,6 @@
         </div>
       </div>
     </div>
+    <script src='/js/main.js'></script>
   </body>
 </html>
