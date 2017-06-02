@@ -16,7 +16,7 @@ app.controller( 'mainController', function($scope, $http) {
             if(err)
               console.log(err)
             $scope.todo = '';
-            $scope.todos = data;
+            $scope.todos = data.data;
           })
     };
 
@@ -25,7 +25,7 @@ app.controller( 'mainController', function($scope, $http) {
           .then(function(data, err) {
             if(err)
               console.log(err)
-            $scope.todos = data;
+            $scope.todos = data.data;
           })
     };
 
