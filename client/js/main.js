@@ -1,6 +1,6 @@
 var app = angular.module('dailyTodo', []);
 
-function mainController($scope, $http) {
+app.controller( 'mainController', function($scope, $http) {
     $scope.formData = {};
 
     $http.get('/api/todos')
@@ -29,4 +29,4 @@ function mainController($scope, $http) {
           })
     };
 
-}
+})
