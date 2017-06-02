@@ -10,12 +10,13 @@ app.controller( 'mainController', function($scope, $http) {
         $scope.todos = data;
       })
 
-    $scope.createTodo = function() {
-        $http.post('/api/todos', $scope.formData)
+    $scope.createTodo = function(todo) {
+      console.log(todo)
+        $http.post('/api/todos', todo)
           .then(function(data, err) {
             if(err)
               console.log(err)
-            $scope.formData = {};
+            $scope.todo = '';
             $scope.todos = data;
           })
     };
