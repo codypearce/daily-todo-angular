@@ -1,13 +1,12 @@
 var app = angular.module('dailyTodo', []);
 
 app.controller( 'mainController', function($scope, $http) {
-    $scope.formData = {};
 
     $http.get('/api/todos')
       .then(function(data, err) {
         if(err)
           console.log(err)
-        $scope.todos = data;
+        $scope.todos = data.data;
       })
 
     $scope.createTodo = function(todo) {
