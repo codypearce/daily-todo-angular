@@ -10,7 +10,6 @@ app.controller( 'mainController', function($scope, $http) {
       })
 
     $scope.createTodo = function(todo) {
-      console.log(todo)
         $http.post('/api/todos', todo)
           .then(function(data, err) {
             if(err)

@@ -32,7 +32,11 @@
           <div class="row">
             <div class="todos col-xs-3 col-xs-offset-4">
               <h3>Todos</h3>
-              <p ng-repeat="todo in todos">{{todo.todo}}</p>
+              <div ng-repeat="todo in todos" class="row between-xs">
+                <p >{{todo.todo}}</p>
+                <button ng-click="deleteTodo(todo._id)">X</button>
+              </div>
+
               <div class="">
                 <input ng-model="todo.todo" name='todo' placeholder="Add a todo">
                 <button ng-click="createTodo(todo)">+</button>

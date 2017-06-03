@@ -28,7 +28,7 @@ module.exports = function(app) {
 
    app.delete('/api/todos/:todoId', function(req, res) {
      Todo.remove({
-       _id: req.paras.todoId
+       _id: req.params.todoId
      }, function(err, todo) {
         if(err)
           res.send(err);
