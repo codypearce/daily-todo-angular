@@ -10,13 +10,16 @@ app.controller( 'mainController', function($scope, $http) {
       })
 
     $scope.createTodo = function(todo) {
-        $http.post('/api/todos', todo)
-          .then(function(data, err) {
-            if(err)
-              console.log(err)
-            $scope.todo = '';
-            $scope.todos = data.data;
-          })
+      if(todo.todo.length < 1) {
+        return;
+      }
+      $http.post('/api/todos', todo)
+        .then(function(data, err) {
+          if(err)
+            console.log(err)
+          $scope.todo = '';
+          $scope.todos = data.data;
+      })
     };
 
     $scope.deleteTodo = function(id) {
