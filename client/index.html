@@ -37,9 +37,9 @@
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
               </div>
 
-              <div class="">
-                <input ng-model="todo.todo" name='todo' placeholder="Add a todo">
-                <button ng-click="createTodo(todo)">+</button>
+              <div class="add row between-xs">
+                <input class="add_input" ng-model="todo.todo" name='todo' placeholder="Add a todo">
+                <button class="add_btn" n ng-click="createTodo(todo)">+</button>
               </div>
             </div>
             <div class="backlog col-xs-2 col-xs-offset-2">
