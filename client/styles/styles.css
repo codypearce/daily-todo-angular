@@ -5,7 +5,9 @@ html, body, .wrapper {
   margin: 0;
   font-family: 'Lato', sans-serif;
 }
-
+.row {
+  margin: 0;
+}
 /* Sidenav */
 .sidenav {
   background: #3737d2;
