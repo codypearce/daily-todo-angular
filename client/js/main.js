@@ -1,4 +1,4 @@
-var app = angular.module('dailyTodo', []);
+var app = angular.module('dailyTodo', ['720kb.datepicker']);
 
 app.controller( 'mainController', function($scope, $http) {
     $scope.date = new Date();
