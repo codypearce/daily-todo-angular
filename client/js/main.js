@@ -1,7 +1,7 @@
 var app = angular.module('dailyTodo', []);
 
 app.controller( 'mainController', function($scope, $http) {
-
+    $scope.date = new Date();
     $http.get('/api/todos')
       .then(function(data, err) {
         if(err)
