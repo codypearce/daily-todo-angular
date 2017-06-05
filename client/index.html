@@ -31,20 +31,21 @@
         <div class="content">
           <h1 class='title'>{{date | date:'MMMM d'}}</h1>
           <div class="row">
-            <div class="todos col-xs-3 col-xs-offset-4">
+            <div class="todos col-xs-4 col-xs-offset-3">
               <h3>Todos</h3>
               <div ng-repeat="todo in todos" class="row between-xs todo">
                 <p>{{todo.todo}}</p>
                 <p ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
               </div>
-
               <div class="add row between-xs">
-                <input class="add_input" ng-model="todo.todo"  placeholder="Add a todo">
-                <datepicker>
-                  <input ng-model="todo.dueDate" type="text"/>
-                </datepicker>
-                <button class="add_btn" n ng-click="createTodo(todo)">+</button>
+                <input class="add_input col-xs-7" ng-model="todo.todo"  placeholder="Add a todo">
+                <span class="col-xs-3">
+                  <datepicker date-format='MMMM d'>
+                    <input class="add_date" ng-model="todo.dueDate" type="text" placeholder="Date"/>
+                  </datepicker>
+                </span>
+                <button class="add_btn col-xs-2" n ng-click="createTodo(todo)">+</button>
               </div>
             </div>
             <div class="backlog col-xs-2 col-xs-offset-2">
