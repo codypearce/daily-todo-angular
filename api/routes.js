@@ -36,6 +36,17 @@ module.exports = function(app) {
       })
      });
    })
+   app.put('/api/todos/undo/:todoId', function(req, res) {
+     Todo.update({ _id: req.params.todoId }, { $set: { done: false }}, function(err, todo) {
+       if(err)
+        res.send(err);
+      Todo.find(function(err, todos) {
+        if(err)
+          res.send(err);
+        res.json(todos);
+      })
+     });
+   })
 
    app.delete('/api/todos/:todoId', function(req, res) {
      Todo.remove({

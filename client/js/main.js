@@ -31,6 +31,14 @@ app.controller( 'mainController', function($scope, $http) {
           $scope.todos = data.data;
         })
     }
+    $scope.undoTodo = function(id) {
+      $http.put('/api/todos/undo/' + id)
+        .then(function(data, err) {
+          if(err)
+            console.log(err)
+          $scope.todos = data.data;
+        })
+    }
 
     $scope.deleteTodo = function(id) {
         $http.delete('/api/todos/' + id)

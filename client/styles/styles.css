@@ -74,6 +74,9 @@ html, body, .wrapper {
   outline: none;
   opacity: 0;
 }
+.todo p:hover{
+  cursor: pointer;
+}
 .add {
   margin-top: 20px;
 }

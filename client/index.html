@@ -40,7 +40,7 @@
               </div>
               <h4>Done</h4>
               <div ng-repeat="todo in todos | filter:{done: true}" class="row between-xs todo done">
-                <p>{{todo.todo}}</p>
+                <a ng-click="undoTodo(todo._id)"><p>{{todo.todo}}</p></a>
                 <p ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
               </div>
