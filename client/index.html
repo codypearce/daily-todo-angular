@@ -34,14 +34,15 @@
             <div class="todos col-xs-3 col-xs-offset-4">
               <h3>Todos</h3>
               <div ng-repeat="todo in todos" class="row between-xs todo">
-                <p >{{todo.todo}}</p>
+                <p>{{todo.todo}}</p>
+                <p ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
               </div>
 
               <div class="add row between-xs">
                 <input class="add_input" ng-model="todo.todo"  placeholder="Add a todo">
                 <datepicker>
-                  <input ng-model="dueDate" type="text"/>
+                  <input ng-model="todo.dueDate" type="text"/>
                 </datepicker>
                 <button class="add_btn" n ng-click="createTodo(todo)">+</button>
               </div>
