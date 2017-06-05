@@ -102,6 +102,14 @@ html, body, .wrapper {
   font-size: 28px;
   vertical-align: middle;
 }
+
+.done {
+  color: grey;
+  text-decoration: line-through;
+}
+
+
+/* BackLog */
 .backlog {
   padding: 10px 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
