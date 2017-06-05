@@ -38,11 +38,12 @@
                 <p ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
               </div>
+              <h4>Add</h4>
               <div class="add row between-xs">
                 <input class="add_input col-xs-7" ng-model="todo.todo"  placeholder="Add a todo">
                 <span class="col-xs-3">
                   <datepicker date-format='MMMM d'>
-                    <input class="add_date" ng-model="todo.dueDate" type="text" placeholder="Date"/>
+                    <input class="add_date" ng-model="todo.dueDate" type="text" placeholder="Due Date"/>
                   </datepicker>
                 </span>
                 <button class="add_btn col-xs-2" n ng-click="createTodo(todo)">+</button>

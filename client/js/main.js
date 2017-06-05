@@ -18,6 +18,7 @@ app.controller( 'mainController', function($scope, $http) {
           if(err)
             console.log(err)
           $scope.todo.todo = '';
+          $scope.todo.dueDate = '';
           $scope.todos = data.data;
       })
     };
