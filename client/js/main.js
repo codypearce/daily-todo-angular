@@ -15,8 +15,11 @@ app.controller( 'mainController', function($scope, $http) {
         btn.classList.remove('active');
       })
       e.target.classList.add('active');
-
-      if(mod === 'tomorrow') {
+      if(mod == 'today') {
+        let date = new Date();
+        $scope.date.setDate(date.getDate());
+        return
+      } else if(mod === 'tomorrow') {
         let date = new Date();
         $scope.date.setDate(date.getDate() + 1);
       }
