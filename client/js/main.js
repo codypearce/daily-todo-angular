@@ -76,4 +76,15 @@ app.controller( 'mainController', function($scope, $http) {
         return;
       }
     }
+    $scope.backlogFilter = function(todo) {
+      if(!todo.dueDate) {
+        return todo;
+      }
+      var todoDate = new Date(todo.dueDate);
+      if(todoDate.getDate() < $scope.date.getDate()) {
+        return todo;
+      } else {
+        return;
+      }
+    }
 })
