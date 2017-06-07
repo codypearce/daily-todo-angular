@@ -9,6 +9,19 @@ app.controller( 'mainController', function($scope, $http) {
         $scope.todos = data.data;
       })
 
+    $scope.changeDate = function(e, mod) {
+      let sideNavBtns = document.querySelectorAll('.sidenav_btn');
+      sideNavBtns.forEach(function(btn) {
+        btn.classList.remove('active');
+      })
+      e.target.classList.add('active');
+      
+      if(mod === 'tomorrow') {
+        let date = new Date();
+        $scope.date.setDate(date.getDate() + 1);
+      }
+
+    }
     $scope.createTodo = function(todo) {
       if(todo.todo.length < 1) {
         return;
@@ -48,5 +61,4 @@ app.controller( 'mainController', function($scope, $http) {
             $scope.todos = data.data;
           })
     };
-
 })
