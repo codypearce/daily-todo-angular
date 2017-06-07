@@ -15,7 +15,7 @@ app.controller( 'mainController', function($scope, $http) {
         btn.classList.remove('active');
       })
       e.target.classList.add('active');
-      
+
       if(mod === 'tomorrow') {
         let date = new Date();
         $scope.date.setDate(date.getDate() + 1);
@@ -61,4 +61,16 @@ app.controller( 'mainController', function($scope, $http) {
             $scope.todos = data.data;
           })
     };
+
+    $scope.currentDateFilter = function(todo) {
+      if(!todo.dueDate) {
+        return;
+      }
+      var todoDate = new Date(todo.dueDate);
+      if(todoDate.getDate() === $scope.date.getDate()) {
+        return todo;
+      } else {
+        return;
+      }
+    }
 })

@@ -33,7 +33,7 @@
           <div class="row">
             <div class="todos col-xs-4 col-xs-offset-3">
               <h3>Todos</h3>
-              <div ng-repeat="todo in todos | filter:{done: false} | filter:{dueDate: ''}" class="row between-xs todo">
+              <div ng-repeat="todo in todos | filter:{done: false} | filter:currentDateFilter" class="row between-xs todo">
                 <a ng-click="finishTodo(todo._id)"><p>{{todo.todo}}</p></a>
                 <p ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
