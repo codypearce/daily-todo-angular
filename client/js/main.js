@@ -2,6 +2,8 @@ var app = angular.module('dailyTodo', ['720kb.datepicker']);
 
 app.controller( 'mainController', function($scope, $http) {
     $scope.date = new Date();
+    $scope.startDate =  null;
+    $scope.endDate = null;
     $http.get('/api/todos')
       .then(function(data, err) {
         if(err)
@@ -15,13 +17,27 @@ app.controller( 'mainController', function($scope, $http) {
         btn.classList.remove('active');
       })
       e.target.classList.add('active');
-      if(mod == 'today') {
-        let date = new Date();
-        $scope.date.setDate(date.getDate());
-        return
-      } else if(mod === 'tomorrow') {
-        let date = new Date();
-        $scope.date.setDate(date.getDate() + 1);
+      let newDate;
+      switch (mod) {
+        case 'today':
+          newDate = new Date();
+          $scope.date.setDate(newDate.getDate());
+          break;
+        case 'yesterday':
+          newDate = new Date();
+          $scope.date.setDate(newDate.getDate() + 1);
+          break;
+        case 'week':
+          var current = new Date();     // get current date
+          var weekstart = current.getDate() - current.getDay() +1;
+          var weekend = weekstart + 6;       // end day is the first day + 6
+          var monday = new Date(current.setDate(weekstart));
+          var sunday = new Date(current.setDate(weekend));
+          console.log(monday)
+          $scope.date.setDate(monday);
+          break;
+        default:
+          return
       }
 
     }
