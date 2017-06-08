@@ -29,12 +29,12 @@ app.controller( 'mainController', function($scope, $http) {
           break;
         case 'week':
           var current = new Date();     // get current date
-          var weekstart = current.getDate() - current.getDay() +1;
+          var weekstart = current.getDate() - current.getDay();
           var weekend = weekstart + 6;       // end day is the first day + 6
-          var monday = new Date(current.setDate(weekstart));
-          var sunday = new Date(current.setDate(weekend));
-          console.log(monday)
-          $scope.date.setDate(monday);
+          var sunday = new Date(current.setDate(weekstart));
+          var saturday = new Date(current.setDate(weekend));
+          $scope.startDate = sunday;
+          $scope.endDate = saturday;
           break;
         default:
           return
