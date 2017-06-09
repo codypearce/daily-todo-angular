@@ -59,6 +59,13 @@ app.controller( 'mainController', function($scope, $http) {
           $scope.startDate = firstDay;
           $scope.endDate = lastDay;
           break;
+        case 'nextMonth':
+          newDate = new Date();
+          var nextfirstDay = new Date(newDate.getFullYear(), newDate.getMonth() + 1, 1);
+          var nextlastDay = new Date(newDate.getFullYear(), newDate.getMonth() + 2, 0);
+          $scope.startDate = nextfirstDay;
+          $scope.endDate = nextlastDay;
+          break;
         default:
           return
       }
