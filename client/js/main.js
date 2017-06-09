@@ -71,7 +71,7 @@ app.controller( 'mainController', function($scope, $http) {
         case 'year':
           newDate = new Date();
           var firstDayYear = new Date(newDate.getFullYear(), 0, 1);
-          var lastDayYear = new Date(newDate.getFullYear(), 0, 0);
+          var lastDayYear = new Date(newDate.getFullYear() + 1, 0, 0);
           $scope.startDate = firstDayYear;
           $scope.endDate = lastDayYear;
           break;
@@ -135,6 +135,7 @@ app.controller( 'mainController', function($scope, $http) {
       var todoDate = new Date(todo.dueDate);
       // If it's a range then check for date in that range;
       if($scope.startDate) {
+        console.log($scope.startDate.getTime(), todoDate.getTime(), $scope.endDate)
         if($scope.startDate.getTime() <= todoDate.getTime() && todoDate.getTime() <= $scope.endDate.getTime()) {
           return todo;
         } else {
