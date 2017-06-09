@@ -4,6 +4,8 @@ app.controller( 'mainController', function($scope, $http) {
     $scope.date = new Date();
     $scope.startDate =  null;
     $scope.endDate = null;
+    $scope.selectedAll = false;
+
     $http.get('/api/todos')
       .then(function(data, err) {
         if(err)
@@ -73,10 +75,16 @@ app.controller( 'mainController', function($scope, $http) {
           $scope.startDate = firstDayYear;
           $scope.endDate = lastDayYear;
           break;
+        case 'all':
+          $scope.date = 'All Todos';
+          $scope.toggleAll();
+          break;
         default:
           return
       }
-
+    }
+    $scope.toggleAll = function() {
+      $scope.selectedAll = !$scope.selectedAll;
     }
     $scope.createTodo = function(todo) {
       if(todo.todo.length < 1) {
