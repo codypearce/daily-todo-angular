@@ -30,18 +30,27 @@ app.controller( 'mainController', function($scope, $http) {
           newDate = new Date();
           $scope.date.setDate(newDate.getDate());
           break;
-        case 'yesterday':
+        case 'tomorrow':
           newDate = new Date();
           $scope.date.setDate(newDate.getDate() + 1);
           break;
         case 'week':
-          var current = new Date();     // get current date
-          var weekstart = current.getDate() - current.getDay();
-          var weekend = weekstart + 6;       // end day is the first day + 6
-          var sunday = new Date(current.setDate(weekstart));
-          var saturday = new Date(current.setDate(weekend));
+          newDate = new Date();     // get current date
+          let weekstart = newDate.getDate() - newDate.getDay();
+          let weekend = weekstart + 6;       // end day is the first day + 6
+          let sunday = new Date(newDate.setDate(weekstart));
+          let saturday = new Date(newDate.setDate(weekend));
           $scope.startDate = sunday;
           $scope.endDate = saturday;
+          break;
+        case 'nextWeek':
+          newDate = new Date();     // get current date
+          let nextweekstart = newDate.getDate() - newDate.getDay() + 7;
+          let nextweekend = nextweekstart + 6;       // end day is the first day + 6
+          let nextsunday = new Date(newDate.setDate(nextweekstart));
+          let nextsaturday = new Date(newDate.setDate(nextweekend));
+          $scope.startDate = nextsunday;
+          $scope.endDate = nextsaturday;
           break;
         default:
           return
