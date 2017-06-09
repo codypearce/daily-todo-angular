@@ -90,6 +90,7 @@ app.controller( 'mainController', function($scope, $http) {
       if(todo.todo.length < 1) {
         return;
       }
+      console.log(new Date(todo.dueDate))
       $http.post('/api/todos', todo)
         .then(function(data, err) {
           if(err)
@@ -135,9 +136,10 @@ app.controller( 'mainController', function($scope, $http) {
       var todoDate = new Date(todo.dueDate);
       // If it's a range then check for date in that range;
       if($scope.startDate) {
-        console.log($scope.startDate, todoDate, $scope.endDate)
-        if($scope.startDate < todoDate < $scope.endDate) {
+        if($scope.startDate.getTime() < todoDate.getTime() && todoDate.getTime() < $scope.endDate.getTime()) {
           return todo;
+        } else {
+          return;
         }
       } else if(todoDate.getDate() === $scope.date.getDate()){
         return todo;
