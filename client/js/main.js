@@ -14,6 +14,9 @@ app.controller( 'mainController', function($scope, $http) {
       })
 
     $scope.changeDate = function(e, mod) {
+      // Reset selectedAll
+      $scope.selectedAll = false;
+
       // Reset Start and EndDate
       $scope.startDate = null;
       $scope.endDate = null;
@@ -84,7 +87,7 @@ app.controller( 'mainController', function($scope, $http) {
       }
     }
     $scope.toggleAll = function() {
-      $scope.selectedAll = !$scope.selectedAll;
+      $scope.selectedAll = true;
     }
     $scope.createTodo = function(todo) {
       if(todo.todo.length < 1) {
@@ -131,11 +134,13 @@ app.controller( 'mainController', function($scope, $http) {
       if(!todo.dueDate) {
         return;
       }
+      if($scope.selectedAll) {
+        return todo;
+      }
 
       var todoDate = new Date(todo.dueDate);
       // If it's a range then check for date in that range;
       if($scope.startDate) {
-        console.log($scope.startDate.getTime(), todoDate.getTime(), $scope.endDate)
         if($scope.startDate.getTime() <= todoDate.getTime() && todoDate.getTime() <= $scope.endDate.getTime()) {
           return todo;
         } else {
