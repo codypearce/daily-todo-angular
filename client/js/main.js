@@ -12,11 +12,18 @@ app.controller( 'mainController', function($scope, $http) {
       })
 
     $scope.changeDate = function(e, mod) {
+      // Reset Start and EndDate
+      $scope.startDate = null;
+      $scope.endDate = null;
+
+      // Remove active class on all nav btns, add to the one clicked
       let sideNavBtns = document.querySelectorAll('.sidenav_btn');
       sideNavBtns.forEach(function(btn) {
         btn.classList.remove('active');
       })
       e.target.classList.add('active');
+
+      // Update the new date
       let newDate;
       switch (mod) {
         case 'today':
