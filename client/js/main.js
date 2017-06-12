@@ -4,6 +4,7 @@ app.controller( 'mainController', function($scope, $http) {
     $scope.date = new Date();
     $scope.startDate =  null;
     $scope.endDate = null;
+    $scope.title = '';
     $scope.selectedAll = false;
 
     $http.get('/api/todos')
@@ -20,6 +21,7 @@ app.controller( 'mainController', function($scope, $http) {
       // Reset Start and EndDate
       $scope.startDate = null;
       $scope.endDate = null;
+      $scope.title = '';
 
       // Remove active class on all nav btns, add to the one clicked
       let sideNavBtns = document.querySelectorAll('.sidenav_btn');
@@ -79,7 +81,7 @@ app.controller( 'mainController', function($scope, $http) {
           $scope.endDate = lastDayYear;
           break;
         case 'all':
-          $scope.date = 'All Todos';
+          $scope.title = 'All Todos';
           $scope.toggleAll();
           break;
         default:

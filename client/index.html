@@ -31,8 +31,9 @@
       </div>
       <div class="body col-xs-10">
         <div class="content">
-          <h1 class='title' ng-if='!startDate'>{{date | date:'MMMM d'}}</h1>
+          <h1 class='title' ng-if='!startDate && !title'>{{date | date:'MMMM d'}}</h1>
           <h1 class='title' ng-if='startDate'>{{startDate | date:'MMMM d'}} - {{endDate | date:'MMMM d'}}</h1>
+          <h1 class='title' ng-if='title'>{{title}}</h1>
           <div class="row">
             <div class="todos col-xs-4 col-xs-offset-3">
               <h3>Todos</h3>
@@ -68,7 +69,6 @@
                 <p ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
               </div>
-
             </div>
           </div>
         </div>
