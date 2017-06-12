@@ -161,7 +161,8 @@ app.controller( 'mainController', function($scope, $http) {
         return todo;
       }
       var todoDate = new Date(todo.dueDate);
-      if(todoDate.getDate() < $scope.date.getDate()) {
+      var date = $scope.startDate ? $scope.startDate : $scope.date;
+      if(todoDate.getTime() < date.getTime()) {
         return todo;
       } else {
         return;
