@@ -1,12 +1,15 @@
 module.exports = {
     "extends": "eslint:recommended",
-    "plugins": [
-        "standard",
-        "promise"
-    ],
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "parserOptions": { "ecmaVersion": 6 },
     "globals": {
       "angular": true,
       "app": true,
     },
-     "parserOptions": { "ecmaVersion": 6 }
+    "rules": {
+      "no-console": 1,
+    }
 };
