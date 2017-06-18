@@ -143,7 +143,7 @@ app.controller( 'mainController', function($scope, $http) {
       var todoDate = new Date(todo.dueDate);
       // If it's a range then check for date in that range;
       if($scope.startDate) {
-        if($scope.startDate.getTime() <= todoDate.getTime() && todoDate.getTime() <= $scope.endDate.getTime()) {
+        if($scope.startDate.getDate() <= todoDate.getDate() && todoDate.getDate() <= $scope.endDate.getDate()) {
           return todo;
         } else {
           return;
@@ -164,14 +164,16 @@ app.controller( 'mainController', function($scope, $http) {
         return;
       }
       var todoDate = new Date(todo.dueDate);
-      var date = $scope.startDate ? $scope.startDate : $scope.date;
-      if(todoDate.getDate() === $scope.date.getDate()) {
+      if($scope.startDate) {
+        if($scope.startDate.setHours(0,0,0, 0) > todoDate.setHours(0,0,0, 0) ) {
+          return todo;
+        } else {
+          return;
+        }
+      } else if(todoDate.getDate() === $scope.date.getDate()){
         return;
-      }
-      if(todoDate.getTime() < date.getTime()) {
+      } else if(todoDate.getTime() < $scope.date.getTime()) {
         return todo;
-      } else {
-        return;
       }
     }
 })
