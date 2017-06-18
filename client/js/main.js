@@ -143,7 +143,7 @@ app.controller( 'mainController', function($scope, $http) {
       var todoDate = new Date(todo.dueDate);
       // If it's a range then check for date in that range;
       if($scope.startDate) {
-        if($scope.startDate.getDate() <= todoDate.getDate() && todoDate.getDate() <= $scope.endDate.getDate()) {
+        if($scope.startDate.setHours(0,0,0, 0)<= todoDate.setHours(0,0,0, 0)&& todoDate.setHours(0,0,0, 0) <= $scope.endDate.setHours(0,0,0, 0)) {
           return todo;
         } else {
           return;
