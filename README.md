@@ -29,6 +29,8 @@ npm run lint
 
 * Angular1.x
 * Node/Express
+* Flexboxgrid
+* Angular Datepicker
 
 ## License
 MIT license
