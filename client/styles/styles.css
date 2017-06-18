@@ -113,4 +113,11 @@ html, body, .wrapper {
   text-decoration: line-through;
 }
 
+@media(max-width:48em) {
+  .hideOnXs {
+    display: none;
+  }
+}
+
+
 @import './components/backlog.css';

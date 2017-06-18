@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
     <link href="/lib/angularjs-datepicker/src/css/angular-datepicker.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="/styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body ng-app='dailyTodo'>
     <div class="row wrapper"  ng-controller="mainController">
-      <div class="sidenav col-xs-2">
+      <div class="sidenav col-md-2 col-sm-3 hideOnXs">
         <div class="">
           <h1 class='sidenav_title'>Daily Todo</h1>
         </div>
@@ -29,19 +30,18 @@
           <p>Copyright 2017</p>
         </div>
       </div>
-      <div class="body col-xs-10">
+      <div class="body col-md-10 col-sm-9 col-xs-12">
         <div class="content">
           <h1 class='title' ng-if='!startDate && !title'>{{date | date:'MMMM d'}}</h1>
           <h1 class='title' ng-if='startDate'>{{startDate | date:'MMMM d'}} - {{endDate | date:'MMMM d'}}</h1>
           <h1 class='title' ng-if='title'>{{title}}</h1>
           <div class="row">
-            <div class="todos col-xs-4 col-xs-offset-1">
+            <div class="todos col-lg-4 col-lg-offset-1 col-md-5 col-xs-12">
               <h2>Todos</h2>
               <div ng-repeat="todo in todos | filter:{done: false} | filter:currentDateFilter | orderBy:'-dueDate':true" class="row between-xs todo">
                 <a class="col-xs-7" ng-click="finishTodo(todo._id)"><p>{{todo.todo}}</p></a>
                 <p class="col-xs-3" ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <div class="col-xs-2">
-                  <button class='edit delete' ng-click="editTodo(todo._id)">Edit</button>
                   <button class='delete' ng-click="deleteTodo(todo._id)">X</button>
                 </div>
               </div>
@@ -55,7 +55,7 @@
                 <button class="add_btn col-xs-2" ng-click="createTodo(todo)">+</button>
               </div>
             </div>
-            <div class="todos col-xs-4 col-xs-offset-1">
+            <div class="todos col-lg-4 col-lg-offset-1 col-md-5 col-xs-12">
               <h2>Done</h2>
               <div ng-repeat="todo in todos | filter:{done: true}" class="row between-xs todo done">
                 <a class="col-xs-8" ng-click="undoTodo(todo._id)"><p>{{todo.todo}}</p></a>
@@ -63,7 +63,7 @@
                 <button class='delete col-xs-2' ng-click="deleteTodo(todo._id)">X</button>
               </div>
             </div>
-            <div class="backlog col-xs-2">
+            <div class="todos backlog col-md-2 col-xs-12">
               <h2>Backlog</h2>
               <div ng-repeat="todo in todos | filter:{done: false} | filter:backlogFilter" class="row between-xs todo">
                 <a ng-click="finishTodo(todo._id)"><p>{{todo.todo}}</p></a>
