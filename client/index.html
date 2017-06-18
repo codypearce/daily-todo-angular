@@ -12,7 +12,12 @@
   </head>
   <body ng-app='dailyTodo'>
     <div class="row wrapper"  ng-controller="mainController">
-      <div class="sidenav col-md-2 col-sm-3 hideOnXs">
+      <div class='hamburger' ng-class={'close':menu} ng-click="toggleMenu()">
+        <div class='bun bunTop'></div>
+        <div class='bun ham'></div>
+        <div class='bun bunBottom'></div>
+      </div>
+      <div class="sidenav col-md-2 col-sm-3 hideOnXs" ng-class={'show':menu}>
         <div class="">
           <h1 class='sidenav_title'>Daily Todo</h1>
         </div>

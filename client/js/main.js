@@ -6,7 +6,11 @@ app.controller( 'mainController', function($scope, $http) {
     $scope.endDate = null;
     $scope.title = '';
     $scope.selectedAll = false;
+    $scope.menu = false;
 
+    $scope.toggleMenu = function() {
+      $scope.menu = !$scope.menu;
+    }
     $http.get('/api/todos')
       .then(function(data, err) {
         if(err)
