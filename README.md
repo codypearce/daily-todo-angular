@@ -1,6 +1,9 @@
 # Daily Todo App
 A simple todo app that shows the todos for a selected time frame. Any todo not in the timeframe or that doesn't have a due date is put into the backlog section. Clicking a todo marks it as done. Built on angular1.x, express, and mongo.
 
+<img src="https://raw.githubusercontent.com/codypearce/daily-todo-angular/master/assets/daily-todo.png" height="350">
+
+
 ## Getting Started
 
 ```
