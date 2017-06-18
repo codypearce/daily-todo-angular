@@ -160,8 +160,14 @@ app.controller( 'mainController', function($scope, $http) {
       if(!todo.dueDate) {
         return todo;
       }
+      if($scope.selectedAll) {
+        return;
+      }
       var todoDate = new Date(todo.dueDate);
       var date = $scope.startDate ? $scope.startDate : $scope.date;
+      if(todoDate.getDate() === $scope.date.getDate()) {
+        return;
+      }
       if(todoDate.getTime() < date.getTime()) {
         return todo;
       } else {
