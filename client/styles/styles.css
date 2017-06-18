@@ -170,9 +170,9 @@ html, body, .wrapper {
     transition: .3s ease all;
   }
 }
-@media(max-width:48em) {
-  .show {
-    display: block;
+@media(min-width:48em) {
+  .hamburger {
+    display: none;
   }
 }
 
