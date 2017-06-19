@@ -1,0 +1,45 @@
+.todos {
+  padding: 10px 20px;
+}
+.todo:hover .delete {
+  opacity: 1;
+  cursor: pointer;
+}
+.todo .delete {
+  color: red;
+  background: none;
+  border: none;
+  outline: none;
+  opacity: 0;
+}
+.todo p:hover{
+  cursor: pointer;
+}
+.add {
+  margin-top: 20px;
+}
+.add_input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  height: 30px;
+  width: 100%;
+}
+.add_date {
+  border: none;
+  outline: none;
+  font-size: 18px;
+  height: 30px;
+  width: 100%;
+}
+.add:hover .add_btn {
+  cursor: pointer;
+}
+.add_btn {
+  border: none;
+  background: none;
+  outline: none;
+  color: green;
+  font-size: 28px;
+  vertical-align: middle;
+}

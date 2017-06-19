@@ -1,0 +1,7 @@
+.doneRow {
+  margin-top: 60px;
+}
+.done {
+  color: grey;
+  text-decoration: line-through;
+}

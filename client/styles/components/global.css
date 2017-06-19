@@ -1,0 +1,35 @@
+html, body, .wrapper {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+.row {
+  margin: 0;
+}
+
+
+/* Main Body */
+.body {
+  height: 100%;
+}
+.content {
+  margin-top: 50px;
+}
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+
+
+@media(max-width:48em) {
+  h1 {
+    margin-top: 5;
+  }
+  .content {
+    margin: 0 auto;
+  }
+}

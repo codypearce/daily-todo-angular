@@ -1,0 +1,50 @@
+.hamburger {
+  width: 30px;
+  margin: 20px 0 0 20px;
+}
+.bun {
+  width: 30px;
+  height: 3px;
+  background: black;
+  margin: 0 auto 3px auto;
+  transition: all .3s ease-in-out;
+  position: relative;
+}
+.hamburger:active, .hamburger:hover {
+  cursor: pointer;
+}
+.hamburger:active .bunTop {
+  transform: rotate(45deg);
+  top: 7px;
+}
+.hamburger:active .ham {
+  transform: rotate(-45deg);
+}
+.hamburger:active .bunBottom {
+  opacity: 0;
+}
+
+.close .bunTop {
+  transform: rotate(45deg);
+  top: 7px;
+}
+.close .ham {
+  transform: rotate(-45deg);
+}
+.close .bunBottom {
+  opacity: 0;
+}
+
+
+@media(max-width:48em) {
+  .hamburger.close {
+    margin-left: 260px;
+    transition: .3s ease all;
+  }
+}
+
+@media(min-width:48em) {
+  .hamburger {
+    display: none;
+  }
+}
