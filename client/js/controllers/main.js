@@ -13,9 +13,7 @@ angular.module('mainController', []).controller( 'mainController', function($sco
          $scope.todos = data.data;
      });
 
-     $scope.toggleMenu = function() {
-       $scope.menu = !$scope.menu;
-     }
+
 
     $scope.changeDate = function(e, mod) {
       // Reset selectedAll
@@ -91,9 +89,15 @@ angular.module('mainController', []).controller( 'mainController', function($sco
           return
       }
     }
+    
+    $scope.toggleMenu = function() {
+      $scope.menu = !$scope.menu;
+    }
     $scope.toggleAll = function() {
       $scope.selectedAll = true;
     }
+
+    // Crud Actions
     $scope.createTodo = function(todo) {
       if(todo.todo.length < 1) {
         return;
@@ -105,20 +109,15 @@ angular.module('mainController', []).controller( 'mainController', function($sco
            $scope.todos = data.data;
        });
     };
-
     $scope.finishTodo = function(id) {
-      $http.put('/api/todos/done/' + id)
-        .then(function(data, err) {
-          if(err)
-            console.log(err)
+      Todos.finish(id)
+        .then(function(data) {
           $scope.todos = data.data;
         })
     }
     $scope.undoTodo = function(id) {
-      $http.put('/api/todos/undo/' + id)
-        .then(function(data, err) {
-          if(err)
-            console.log(err)
+      Todos.undo(id)
+        .then(function(data) {
           $scope.todos = data.data;
         })
     }
