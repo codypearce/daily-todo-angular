@@ -1,28 +1,28 @@
-angular.module('backlogFilter', []).filter('backlogFilter', function() {
+angular.module('currentDateFilter', []).filter('currentDateFilter', function() {
   return function(todos, scope) {
     if(!todos) {return}
     var filtered = [];
+    
     todos.forEach(function(todo) {
-      // If all are selcted none should be in backlog
-      if(scope.selectedAll) {
+      if(!todo.dueDate) {
         return;
       }
-      // If it doesn't have a due date it should default to backlog
-      if(!todo.dueDate) {
+      if(scope.selectedAll) {
         return filtered.push(todo);
       }
-    
+
       var todoDate = new Date(todo.dueDate);
+      // If it's a range then check for date in that range;
       if(scope.startDate) {
-        if(scope.startDate.setHours(0,0,0, 0) > todoDate.setHours(0,0,0, 0) ) {
+        if(scope.startDate.setHours(0,0,0, 0)<= todoDate.setHours(0,0,0, 0)&& todoDate.setHours(0,0,0, 0) <= scope.endDate.setHours(0,0,0, 0)) {
           return filtered.push(todo);
         } else {
           return;
         }
       } else if(todoDate.getDate() === scope.date.getDate()){
-        return;
-      } else if(todoDate.getTime() < scope.date.getTime()) {
         return filtered.push(todo);
+      } else {
+        return;
       }
     })
     return filtered;

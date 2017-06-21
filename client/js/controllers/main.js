@@ -130,30 +130,5 @@ angular.module('mainController', []).controller( 'mainController', function($sco
         });
     };
 
-    $scope.currentDateFilter = function(todo) {
-      // If no dueDate then it should be in backLog
-      if(!todo.dueDate) {
-        return;
-      }
-      if($scope.selectedAll) {
-        return todo;
-      }
-
-      var todoDate = new Date(todo.dueDate);
-      // If it's a range then check for date in that range;
-      if($scope.startDate) {
-        if($scope.startDate.setHours(0,0,0, 0)<= todoDate.setHours(0,0,0, 0)&& todoDate.setHours(0,0,0, 0) <= $scope.endDate.setHours(0,0,0, 0)) {
-          return todo;
-        } else {
-          return;
-        }
-      } else if(todoDate.getDate() === $scope.date.getDate()){
-        return todo;
-      } else {
-        return;
-      }
-
-
-    }
 
 })

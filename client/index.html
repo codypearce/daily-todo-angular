@@ -43,7 +43,7 @@
           <div class="row">
             <div class="todos col-lg-4 col-lg-offset-1 col-md-5 col-xs-12">
               <h2>Todos</h2>
-              <div ng-repeat="todo in todos | filter:{done: false} | filter:currentDateFilter | orderBy:'-dueDate':true" class="row between-xs todo">
+              <div ng-repeat="todo in todos | filter:{done: false} | currentDateFilter:this | orderBy:'-dueDate':true" class="row between-xs todo">
                 <a class="col-xs-7" ng-click="finishTodo(todo._id)"><p>{{todo.todo}}</p></a>
                 <p class="col-xs-3" ng-if="todo.dueDate !== date">{{todo.dueDate |  date:'MMMM d'}}</p>
                 <div class="col-xs-2">
@@ -82,6 +82,7 @@
     </div>
     <script src='/lib/angular/angular.min.js'></script>
     <script src="/lib/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+    <script src='/js/filters/currentDateFilter.js'></script>
     <script src='/js/filters/backlogFilter.js'></script>
     <script src='/js/services/todo.js'></script>
     <script src='/js/controllers/main.js'></script>
