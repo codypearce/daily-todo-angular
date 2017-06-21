@@ -7,15 +7,15 @@ angular.module('mainController', []).controller( 'mainController', function($sco
     $scope.selectedAll = false;
     $scope.menu = false;
 
-    $scope.toggleMenu = function() {
-      $scope.menu = !$scope.menu;
-    }
 
     Todos.get()
      .then(function(data) {
          $scope.todos = data.data;
      });
 
+     $scope.toggleMenu = function() {
+       $scope.menu = !$scope.menu;
+     }
 
     $scope.changeDate = function(e, mod) {
       // Reset selectedAll
@@ -155,24 +155,5 @@ angular.module('mainController', []).controller( 'mainController', function($sco
 
 
     }
-    $scope.backlogFilter = function(todo) {
-      if(!todo.dueDate) {
-        return todo;
-      }
-      if($scope.selectedAll) {
-        return;
-      }
-      var todoDate = new Date(todo.dueDate);
-      if($scope.startDate) {
-        if($scope.startDate.setHours(0,0,0, 0) > todoDate.setHours(0,0,0, 0) ) {
-          return todo;
-        } else {
-          return;
-        }
-      } else if(todoDate.getDate() === $scope.date.getDate()){
-        return;
-      } else if(todoDate.getTime() < $scope.date.getTime()) {
-        return todo;
-      }
-    }
+
 })

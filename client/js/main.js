@@ -1,1 +1,1 @@
-angular.module('dailyTodo', ['720kb.datepicker', 'mainController', 'todoService']);
+angular.module('dailyTodo', ['720kb.datepicker', 'backlogFilter', 'mainController', 'todoService', ]);
