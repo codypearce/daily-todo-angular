@@ -1,5 +1,5 @@
 
-angular.mondule('dailyTodo', []).controller( 'mainController', function($scope, $http, Todos) {
+angular.module('mainController', []).controller( 'mainController', function($scope, $http, Todos) {
     $scope.date = new Date();
     $scope.startDate =  null;
     $scope.endDate = null;
@@ -13,7 +13,7 @@ angular.mondule('dailyTodo', []).controller( 'mainController', function($scope, 
 
     Todos.get()
      .then(function(data) {
-         $scope.todos = data;
+         $scope.todos = data.data;
      });
 
 
@@ -126,7 +126,7 @@ angular.mondule('dailyTodo', []).controller( 'mainController', function($scope, 
     $scope.deleteTodo = function(id) {
       Todos.delete(id)
         .then(function(data) {
-            $scope.todos = data;
+            $scope.todos = data.data;
         });
     };
 
